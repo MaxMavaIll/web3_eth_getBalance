@@ -1,0 +1,24 @@
+# calculation is done in seconds
+time_sleep = 30
+
+list_wallet_rpc =[
+    ["address", "eth_rpc"]
+]
+
+[logging]
+max_log_size = 20
+backup_count = 4
+
+######################
+#     Telegram Bot
+######################
+[tg_bot]
+TOKEN = '67027fsf3425llyJPn53jZfTV25dJdfYZ0tMKv0tOE'
+user_group_id = [1863489069]
+#-4041956325
+
+[tg_bot.lighthouse]
+enable = true
+message = "Status: Active 🟢"
+
+time = '15'

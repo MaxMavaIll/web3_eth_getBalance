@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  web3_eth_getbalance:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: getbalance
+    restart: unless-stopped
+    volumes:
+      - ./config.toml:/app/config.toml
+    command: ["python", "main.py"]
