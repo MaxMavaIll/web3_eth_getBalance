@@ -47,9 +47,9 @@ def runtime_check(times: str) -> bool:
             if len(time) != 2:
                 time.append(0)
                 
-            log.info(f"{datetime.timedelta()} <= {datetime.timedelta(hours=time_now.hour, minutes=time_now.minute) - datetime.timedelta(hours=int(time[0]), minutes=int(time[1]))} < {datetime.timedelta(seconds=config_toml['time_sleep'])}")
+            log.info(f"{datetime.timedelta()} <= {datetime.timedelta(hours=time_now.hour, minutes=time_now.minute, seconds=time_now.second) - datetime.timedelta(hours=int(time[0]), minutes=int(time[1]))} < {datetime.timedelta(seconds=config_toml['time_sleep'])}")
             
-            if datetime.timedelta() <= datetime.timedelta(hours=time_now.hour, minutes=time_now.minute) - datetime.timedelta(hours=int(time[0]), minutes=int(time[1]))  < datetime.timedelta(seconds=config_toml['time_sleep']):
+            if datetime.timedelta() <= datetime.timedelta(hours=time_now.hour, minutes=time_now.minute, seconds=time_now.second) - datetime.timedelta(hours=int(time[0]), minutes=int(time[1]))  < datetime.timedelta(seconds=config_toml['time_sleep']):
                 log.info(f"Get True")
                 return True
     
