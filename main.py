@@ -4,6 +4,7 @@ import logging
 
 from logging.handlers import RotatingFileHandler
 from function import runtime_check, make_request_rpc
+from bot_tg.bot import send_message
 
 config = toml.load("config.toml")
 
@@ -39,7 +40,7 @@ def main():
             tmp1 += 1
         
         if config['tg_bot']['lighthouse']['enable'] and runtime_check(config['tg_bot']['lighthouse']['time']):
-            pass
+            send_message(config['tg_bot']['lighthouse']['message'])
         
         log.info(f"Wait {config['time_sleep']} sec")
         time.sleep(config['time_sleep'])

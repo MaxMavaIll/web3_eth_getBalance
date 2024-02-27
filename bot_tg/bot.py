@@ -29,7 +29,7 @@ def send_message(message: str):
         """
         type_bot_token | TOKEN_ERROR, TOKEN_PROPOSALS, TOKEN_SERVER, TOKEN_NODE
         """
-        for chat_id in config_toml['tg_bot']['admins']:
+        for chat_id in config_toml['tg_bot']['user_group_id']:
             log.info(f"Відправляю повідомлення -> {chat_id}")
 
             
