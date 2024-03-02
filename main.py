@@ -40,7 +40,7 @@ def main():
             try:
                 make_request_rpc(address=addr_url[0], eth_rpc=addr_url[1])
             except requests.exceptions.HTTPError: 
-                log.exception(f"{tmp1}. url: {addr_url} get:\n")
+                log.exception(f"{tmp1}. url: {addr_url[1]} get:\n")
             tmp1 += 1
         
         if config['tg_bot']['lighthouse']['enable'] and runtime_check(config['tg_bot']['lighthouse']['time']):
