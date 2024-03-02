@@ -1,6 +1,7 @@
 import toml
 import time
 import logging
+import requests
 
 from logging.handlers import RotatingFileHandler
 from function import runtime_check, make_request_rpc
@@ -36,7 +37,10 @@ def main():
         tmp1 = 1
         for addr_url in config['list_wallet_rpc']:
             log.info(f"------ {tmp1}. {addr_url[0]} ------")
-            make_request_rpc(address=addr_url[0], eth_rpc=addr_url[1])
+            try:
+                make_request_rpc(address=addr_url[0], eth_rpc=addr_url[1])
+            except requests.exceptions.HTTPError: 
+                log.exception(f"{tmp1}. url: {addr_url} get:\n")
             tmp1 += 1
         
         if config['tg_bot']['lighthouse']['enable'] and runtime_check(config['tg_bot']['lighthouse']['time']):
